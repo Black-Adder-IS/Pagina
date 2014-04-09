@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Escuela de Inglés | Bienvenido
+        </title>
+        
+        <link rel="stylesheet" href="css/foundation.css"/>
+        <link rel="stylesheet" href="css/index.css"/>
+        
+        <script src="js/vendor/modernizr.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Maven+Pro"/>
+        <style type="text/css">
+            .vjs-default-skin .vjs-control-bar {font-size: 89%}
+        </style>
+        
+        <script src="js/registro_estudiante.js"></script>
+        <script src="js/registro_profesor.js"></script>
+        
+        <script>
+            if(typeof(Storage)!=="undefined") {
+                localStorage.setItem("id", "vila@ciencias.unam.mx");
+                localStorage.setItem("tipo", "estudiante")
+            } else {
+            }
+        </script>
+    </head>
+    
+    <body>
+        
+        <div id="mensaje" data-alert class="alert-box">
+            <a href="#" class="close">
+                &times;
+            </a>
+        </div>
+        
+        <div id="iniciarModal" class="reveal-modal" data-reveal>
+            <h2>
+                Inicio de Sesión
+            </h2>
+            <form>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label>
+                            Correo
+                            <input type="text" placeholder="large-4.columns" />
+                        </label>
+                    </div>
+                    
+                    <div class="large-4 columns">
+                        <label>
+                            Contraseña
+                            <input type="text" placeholder="large-4.columns" />
+                        </label>
+                    </div>
+                    
+                    <div class="large-4 columns">
+                        <label>
+                            Iniciar sesión como:
+                        </label>
+                        <input type="radio" name="pokemon" value="Red" id="pokemonRed">
+                        <label for="pokemonRed">
+                            Alumno
+                        </label>
+                        <input type="radio" name="pokemon" value="Blue" id="pokemonBlue">
+                        <label for="pokemonBlue">
+                            Maestro
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" class="button [tiny small large]">
+                        Entrar
+                    </a>
+                </div>
+            </form>
+            <a class="close-reveal-modal">
+                &#215;
+            </a>
+        </div>
+        
+        <div id="myModal" class="reveal-modal" data-reveal>
+            <h2>
+                Elige el tipo de registro
+            </h2>
+            <p class="lead">
+                Puedes elegir entre profesor y estudiante
+            </p>
+            <div class="panel">
+                <h5>
+                    Aprende
+                </h5>
+                <p>
+                    Selecciona el nivel de curso que quieras tomar con el maestro que te agrade.
+                </p>
+                <a href="#" class="small button"  data-reveal-id="registroAlumnoModal" data-reveal>
+                    Aprender
+                </a>
+            </div>
+            <div class="panel">
+                <h5>
+                    Enseña
+                </h5>
+                <p>
+                    Ofrece cursos eligiendo los horarios que quieras y a alumnos de tu agrado.
+                </p>
+                <a href="#" class="small button" data-reveal-id="registroMaestroModal" data-reveal>
+                    Enseñar
+                </a>
+            </div>
+            <a class="close-reveal-modal">
+                &#215;
+            </a>
+        </div>
+        
+        <div id="registroAlumnoModal" class="reveal-modal" data-reveal>
+            <h2>
+                Registro de Alumno
+            </h2>
+            <form data-abide>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="input-wrapper">
+                            <label>
+                                Nombre
+                                <input type="text" id="nombre_Estudiante" placeholder="min. 4 caracteres - max. 100 caracteres" pattern="([a-zA-Z0-9]{4,100})$"/>
+                            </label>
+                            <small class="error">Ya fue</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="large-4 columns">
+                        <div class="input-wrapper">
+                            <label>
+                                Correo
+                                <input type="text" id="correo_Estudiante" placeholder="min. 4 caracteres - max. 50 caracteres" pattern="/[\w-\.]{3,}@([\w-]{2,}\.)[\w-]{2,4}/"/>
+                            </label>
+                            <small class="error">Introduce un correo válido.</small>
+                        </div>
+                    </div>
+                    
+                    <div class="large-4 columns">
+                        <div class="password-field">
+                            <label>
+                                Constraseña
+                                <input type="password" id="contrasenia_Estudiante" placeholder="min. 6 caracteres - max. 50 caracteres" required pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$"/>
+                            </label>
+                            <small class="error">Your password must match the requirements</small>
+                        </div>
+                    </div>
+                    
+                    <div class="large-4 columns">
+                        <label>
+                            Nivel de Inglés
+                            <select name="nivel">
+                                <option value="p">Principiante</option>
+                                <option value="i">Intermedio</option>
+                                <option value="a">Avanzado</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="large-12 columns text-center">
+                        <br>
+                        <br>
+                        <a href="#" id="registrarEstudiante" class="button">Registrar</a>
+                    </div>
+                </div>
+            </form>
+
+            <a class="close-reveal-modal">
+                &#215;
+            </a>
+        </div>
+        
+        <div id="registroMaestroModal" class="reveal-modal" data-reveal>
+            <h2>
+                Registro de Maestro
+            </h2>
+            
+            <form>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>
+                            Nombre
+                            <input id="nombre_Profesor" type="text" placeholder="large-12.columns" />
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="large-6 columns">
+                        <label>
+                            Correo
+                            <input id="correo_Profesor" type="text" placeholder="large-4.columns" />
+                        </label>
+                    </div>
+                    
+                    <div class="large-6 columns">
+                        <label>
+                            Constraseña
+                            <input id="contrasenia_Profesor" type="text" placeholder="min. 6 caracteres" />
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="large-12 columns text-center">
+                        <div class="panel">
+                            <p>
+                                Despúes del registro debes subir un video de 1 minuto presentandote y una constancia antes de poder ofrecer cursos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="large-12 columns text-center">
+                        <a href="#" id="registrarProfesor" class="button">
+                            Registrar
+                        </a>
+                    </div>
+                </div>
+            </form>
+            <a class="close-reveal-modal">
+                &#215;
+            </a>
+        </div>
+        
+        <div class="row">
+            <div class="small-8 large-10 columns">
+                <a href="index.html">
+                    <img src="images/logo.png">
+                    </a>
+            </div>
+            
+            <div class="small-4 large-2 columns navbar fixed sticky">
+                <a href="#" data-dropdown="drop" class="[tiny small medium large] [secondary alert success] [radius round] button dropdown">
+                    Menú
+                </a>
+                <br>
+                <ul id="drop" data-dropdown-content class="f-dropdown">
+                    <li class="active">
+                        <a href="#">
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-reveal-id="myModal" data-reveal>
+                            Registrar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="html/horarios.html">
+                            Ver Horarios
+                        </a>
+                    </li>
+                    <li>
+                        <a href="html/maestros.html">
+                            Ver Maestros
+                        </a>
+                    </li>
+                    <li>
+                        <br>
+                    </li>
+                    <li>
+                        <a href="#" data-reveal-id="iniciarModal" data-reveal>
+                            Iniciar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="foto">
+            <img src="images/shake3.jpg">
+        </div>
+        
+        <div class="row">
+            <div class="small-12 large-12 columns">
+                <p class="text-center" id="slogan">
+                    El sitio que une alumnos y maestros.
+                </p>
+            </div>
+        </div>
+        
+        <div class="row" data-equalizer>
+            <div class="small-4 large-4 columns" >
+                <div class="panel" data-equalizer-watch>
+                    <h5>
+                        Enseña
+                    </h5>
+                    <p>
+                        Ofrece cursos eligiendo los horarios que quieras y a alumnos de tu agrado.
+                    </p>
+                    <a href="#" class="small button" data-reveal-id="registroMaestroModal" data-reveal>
+                        Enseñar
+                    </a>
+                </div>
+            </div>
+            
+            <div class="small-4 large-4 columns" >
+                <div class="panel" data-equalizer-watch>
+                    <h5>
+                        ¿Indeciso?
+                    </h5>
+                    <p>
+                        Navega por los horarios y ecuentra un curso que te guste antes de registrarte.
+                    </p>
+                    <a href="html/horarios.html" class="small button">
+                        Visitar Horarios
+                    </a>
+                </div>
+            </div>
+            
+            <div class="small-4 large-4 columns" >
+                <div class="panel" data-equalizer-watch>
+                    <h5>
+                        Aprende
+                    </h5>
+                    <p>
+                        Selecciona el nivel de curso que quieras tomar con el maestro que te agrade.
+                    </p>
+                    <a href="#" class="small button"  data-reveal-id="registroAlumnoModal" data-reveal>
+                        Aprender
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+    </body>
+</html>
